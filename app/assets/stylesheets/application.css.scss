@@ -71,6 +71,16 @@ nav {
   padding: 7px 9px;
 }
 
+
+.signedin {
+  
+   color: #f44245;
+
+   &:hover {
+      color: #e22282;
+   }
+  
+}
 .test {
   background-image: image-url('cover.jpg'); 
 

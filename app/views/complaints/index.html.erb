@@ -6,8 +6,18 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
 </div>
 </div>
 
-
+<div class="row">
 <h1>Complaints</h1>
+<!--<div class="pull-right range-query">
+<%= form_tag complaints_path, method: :get do %>
+  <%= text_field_tag 'search[created_from]', @search.date_from, :class => 'datepicker'  %>
+ 
+  <%= text_field_tag 'search[created_to]', @search.date_to, :class => 'datepicker' %>
+  <%= submit_tag 'Search', class: 'btn search-button' %>
+  <% end %>
+  </div> -->
+  </div>
+
 
 <div class="media">
  
@@ -29,7 +39,7 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
   </thead>
 
   <tbody>
-    <% @complaints.each do |complaint| %>
+    <% @complaints.reverse_each do |complaint| %>
       <tr>
         <td><%= complaint.section %></td>
         <td><%= complaint.name %></td>
@@ -38,7 +48,7 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
         <td><%= complaint.status %></td>
         
         <% if can? :manage, User %>
-        <td><%= complaint.created_at.strftime("%I:%M%p") %></td>
+        <td><%= complaint.created_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
         <% end %>
      <!--   <td><%= complaint.user %></td>  -->
  
@@ -55,6 +65,11 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
   </tbody>
 </table>
 </div>
+
+<div class="apple_pagination">
+   
+    <%= will_paginate @complaints, :container => false %>
+  </div>
 </div>
 
 <br>

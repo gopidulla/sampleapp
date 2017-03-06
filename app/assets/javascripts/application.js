@@ -12,9 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks 	
+//= require turbolinks
+//= require bootstrap-datepicker	
 //= require toastr
 //= require_tree .
+
+ $(document).ready(function(){
+    $('.datepicker').datepicker({
+    	dateFormat: "yy-mm-dd"
+    }).datepicker("setDate", "0");
+    });
+    
+
+
+
 
 
 function blinker() {

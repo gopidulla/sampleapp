@@ -30,6 +30,7 @@
   <%= @complaint.user %>
 </p>
 -->
-<%= link_to 'Edit', edit_complaint_path(@complaint), class: 'btn btn-min btn-default' %> |
+ <% if can? :manage, User %>
+<%= link_to 'Edit', edit_complaint_path(@complaint), class: 'btn btn-min btn-default' %> |<% end %>
 <%= link_to 'Back', complaints_path, class: 'btn btn-min btn-default' %>
 </div>

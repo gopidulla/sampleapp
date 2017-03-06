@@ -30,6 +30,11 @@ gem 'rails_admin'
 
 gem 'cancancan'
 
+gem 'will_paginate'
+
+gem 'bootstrap-datepicker-rails'
+
+
 gem 'whenever', :require => false
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

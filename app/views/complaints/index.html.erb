@@ -8,14 +8,14 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
 
 <div class="row">
 <h1>Complaints</h1>
-<div class="pull-right range-query">
+<!--<div class="pull-right range-query">
 <%= form_tag complaints_path, method: :get do %>
-  <%= text_field_tag 'search[date_from]', @search.date_from, :class => 'datepicker'  %>
+  <%= text_field_tag 'search[created_from]', @search.date_from, :class => 'datepicker'  %>
  
-  <%= text_field_tag 'search[date_to]', @search.date_to, :class => 'datepicker' %>
+  <%= text_field_tag 'search[created_to]', @search.date_to, :class => 'datepicker' %>
   <%= submit_tag 'Search', class: 'btn search-button' %>
   <% end %>
-  </div>
+  </div> -->
   </div>
 
 
@@ -48,7 +48,7 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
         <td><%= complaint.status %></td>
         
         <% if can? :manage, User %>
-        <td><%= complaint.created_at.strftime("%I:%M%p") %></td>
+        <td><%= complaint.created_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
         <% end %>
      <!--   <td><%= complaint.user %></td>  -->
  

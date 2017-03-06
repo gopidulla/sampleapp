@@ -87,7 +87,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def complaint_params
-      params.require(:complaint).permit(:section, :name, :problem, :status, :user_id)
+      params.require(:complaint).permit(:section, :name, :problem, :status, :remarks, :user_id)
     end
 
 

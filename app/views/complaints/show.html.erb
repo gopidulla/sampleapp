@@ -24,6 +24,13 @@
   <%= @complaint.created_at %>
 </p>
 <% end %>
+<% if can? :manage, User %>
+<p>
+  <strong>Remarks:</strong>
+  <%= @complaint.remarks %>
+</p>
+<% end %>
+
 <!-- 
 <p>
   <strong>User:</strong>

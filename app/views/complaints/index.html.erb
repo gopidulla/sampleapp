@@ -33,6 +33,7 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
       <% if can? :manage, User %>
       <th>Created_Time</th>
       <% end %> 
+      <th>Remarks</th>
     <!--  <th>User</th> -->
       <th colspan="3"></th>
     </tr>
@@ -50,6 +51,7 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
         <% if can? :manage, User %>
         <td><%= complaint.created_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
         <% end %>
+        <td><%= complaint.remarks %></td>
      <!--   <td><%= complaint.user %></td>  -->
  
         <td><%= link_to 'Show', complaint, class: 'btn btn-sm btn-info' %></td>

@@ -16,13 +16,27 @@ class User < ApplicationRecord
    has_many :complaints do
       
       def today
-      where(:created_at => (Time.zone.now.beginning_of_day..Time.zone.now))
+      where(:created_time => (Time.zone.now.beginning_of_day..Time.zone.now))
     end
 
     def this_week
-      where(:created_at => (Time.zone.now.beginning_of_week..Time.zone.now))
+      where(:created_time => (Time.zone.now.beginning_of_week..Time.zone.now))
     end
    end
+
+   def updated_at
+    read_attribute(:updated_at)
+  end
+
+  def updated_at=(value)
+    compute_updated_at
+  end
+
+  private
+
+  def compute_updated_at
+    write_attribute(:updated_at, Time.now + 1.month)
+  end
 
  
 end

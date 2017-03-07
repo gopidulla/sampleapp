@@ -19,6 +19,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 body {
 	background: #fff;
 	
@@ -75,6 +76,7 @@ nav {
 .signedin {
   
    color: #f44245;
+   height: 10px;
 
    &:hover {
       color: #e22282;

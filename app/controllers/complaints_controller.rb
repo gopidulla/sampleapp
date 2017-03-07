@@ -8,8 +8,7 @@ class ComplaintsController < ApplicationController
   # GET /complaints
   # GET /complaints.json
   def index
-    @search = ComplaintSearch.new(params[:search])
-    @complaints = @search.scope
+    
     @complaints = Complaint.accessible_by(current_ability).paginate(:page => params[:page]).order('user_id').per_page(10).order(created_at: :desc)#all
 
 
@@ -87,7 +86,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def complaint_params
-      params.require(:complaint).permit(:section, :name, :problem, :status, :remarks, :user_id)
+      params.require(:complaint).permit(:section, :name, :problem, :status, :remarks, :updated_time, :user_id)
     end
 
 

@@ -14,16 +14,25 @@
   <%= @complaint.problem %>
 </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @complaint.status %>
-</p>
- <% if can? :manage, User %>
+<% if can? :manage, User %>
 <p>
   <strong>Created_Time:</strong>
   <%= @complaint.created_at %>
 </p>
 <% end %>
+
+<p>
+  <strong>Status:</strong>
+  <%= @complaint.status %>
+</p>
+ 
+ <% if can? :manage, User %>
+<p>
+  <strong>Updated_Time:</strong>
+  <%= @complaint.updated_time %>
+</p>
+<% end %>
+
 <% if can? :manage, User %>
 <p>
   <strong>Remarks:</strong>

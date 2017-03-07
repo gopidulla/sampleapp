@@ -13,9 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-datepicker	
+//= require bootstrap-datepicker
+//= require jquery.turbolinks
 //= require toastr
 //= require_tree .
+
+document.addEventListener("turbolinks:load", function() {
+  my_func();
+})
 
  $(document).ready(function(){
     $('.datepicker').datepicker({

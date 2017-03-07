@@ -8,14 +8,7 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
 
 <div class="row">
 <h1>Complaints</h1>
-<!--<div class="pull-right range-query">
-<%= form_tag complaints_path, method: :get do %>
-  <%= text_field_tag 'search[created_from]', @search.date_from, :class => 'datepicker'  %>
- 
-  <%= text_field_tag 'search[created_to]', @search.date_to, :class => 'datepicker' %>
-  <%= submit_tag 'Search', class: 'btn search-button' %>
-  <% end %>
-  </div> -->
+
   </div>
 
 
@@ -28,10 +21,12 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
       <th>Section</th>
       <th>Name</th>
       <th>Problem</th>
-     
+     <% if can? :manage, User %>
+      <th>Created_Time</th>
+      <% end %> 
       <th>Status</th>
       <% if can? :manage, User %>
-      <th>Created_Time</th>
+      <th>Updated_Time</th>
       <% end %> 
       <th>Remarks</th>
     <!--  <th>User</th> -->
@@ -45,11 +40,13 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
         <td><%= complaint.section %></td>
         <td><%= complaint.name %></td>
         <td><%= complaint.problem %></td>
-        
+         <% if can? :manage, User %>
+        <td><%= complaint.created_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
+        <% end %>
         <td><%= complaint.status %></td>
         
         <% if can? :manage, User %>
-        <td><%= complaint.created_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
+        <td><%= complaint.updated_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
         <% end %>
         <td><%= complaint.remarks %></td>
      <!--   <td><%= complaint.user %></td>  -->

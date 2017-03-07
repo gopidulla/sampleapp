@@ -83,18 +83,9 @@
  </div>
  <% end %>
 
-<% if can? :manage, User %>
- 
-  <div class="col-lg-6 col-md-6">
-  <div class="control-group">
-    <%= f.label :updated_time, class: 'control-label' %><br>
-    <div class="controls">
-    <%= f.text_field :updated_time, :class => 'datepicker control-label', 'data-no-turbolink' => true  %>
-    </div>
+
   </div>
-  </div>
-  </div>
-<% end %>
+
 <!--
 <% if can? :manage, User %>
  <div class="field">

@@ -17,11 +17,11 @@ class User < ApplicationRecord
    has_many :complaints do
       
       def today
-      where(:created_time => (Time.zone.now.beginning_of_day..Time.zone.now))
+      where(:created_at => (Time.zone.now.beginning_of_day..Time.zone.now))
     end
 
     def this_week
-      where(:created_time => (Time.zone.now.beginning_of_week..Time.zone.now))
+      where(:created_at => (Time.zone.now.beginning_of_week..Time.zone.now))
     end
    end
 

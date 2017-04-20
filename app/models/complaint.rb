@@ -2,7 +2,7 @@ class Complaint < ApplicationRecord
   validates :section, :name, :problem,  :presence => true
   belongs_to :user
   
-  
+  default_scope { order(created_at: :desc) }
 
   validate :user_quota, :on => :create
 

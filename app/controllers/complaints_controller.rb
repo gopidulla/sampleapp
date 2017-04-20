@@ -9,7 +9,7 @@ class ComplaintsController < ApplicationController
   # GET /complaints.json
   def index
     
-    @complaints = Complaint.accessible_by(current_ability).paginate(:page => params[:page]).order('user_id').per_page(10).order(created_at: :desc)#all
+    @complaints = Complaint.accessible_by(current_ability).paginate(:page => params[:page]).order('user_id').per_page(10)#all
 
 
   end

@@ -2,7 +2,7 @@
 
 <div class="col-xs-6 col-md-4 pull-right">
 Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hidden="true"></span>
- <span class="blink_me"><%= link_to 'Click Here',  new_complaint_path, class: 'btn btn-min btn-default' %> </span>
+ <span class="blink_me"><%= link_to 'Click Here',  new_complaint_path, class: 'btn btn-min btn-warning' %> </span>
 </div>
 </div>
 
@@ -35,7 +35,7 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
   </thead>
 
   <tbody>
-    <% @complaints.reverse_each do |complaint| %>
+    <% @complaints.each do |complaint| %>
       <tr>
         <td><%= complaint.section %></td>
         <td><%= complaint.name %></td>

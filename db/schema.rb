@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170306113535) do
     t.string   "name"
     t.text     "problem"
     t.string   "status",     default: "Pending", null: false
+    t.integer  "user_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "remarks"

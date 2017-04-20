@@ -1,4 +1,13 @@
 <div class="border-form-div">
+
+<% if can? :manage, User %>
+<p>
+  <strong>Created_Time:</strong>
+  <%= @complaint.created_at %>
+</p>
+<% end %>
+
+
 <p>
   <strong>Section:</strong>
   <%= @complaint.section %>
@@ -14,12 +23,7 @@
   <%= @complaint.problem %>
 </p>
 
-<% if can? :manage, User %>
-<p>
-  <strong>Created_Time:</strong>
-  <%= @complaint.created_at %>
-</p>
-<% end %>
+
 
 <p>
   <strong>Status:</strong>

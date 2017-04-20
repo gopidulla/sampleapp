@@ -18,12 +18,13 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
     <table class="table table-hover">  
      <thead>
     <tr>
+    <% if can? :manage, User %>
+      <th>Created_Time</th>
+      <% end %> 
       <th>Section</th>
       <th>Name</th>
       <th>Problem</th>
-     <% if can? :manage, User %>
-      <th>Created_Time</th>
-      <% end %> 
+     
       <th>Status</th>
       <% if can? :manage, User %>
       <th>Updated_Time</th>
@@ -37,12 +38,13 @@ Register A Complaint? <br><span class="glyphicon glyphicon-hand-right blink_me" 
   <tbody>
     <% @complaints.each do |complaint| %>
       <tr>
+       <% if can? :manage, User %>
+        <td><%= complaint.created_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
+        <% end %>
         <td><%= complaint.section %></td>
         <td><%= complaint.name %></td>
         <td><%= complaint.problem %></td>
-         <% if can? :manage, User %>
-        <td><%= complaint.created_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
-        <% end %>
+        
         <td><%= complaint.status %></td>
         
         <% if can? :manage, User %>
